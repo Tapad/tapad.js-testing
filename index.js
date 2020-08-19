@@ -20,13 +20,13 @@ function getTimingForRequest(url, tracing) {
       x.name === "ResourceFinish"
   );
 
-  const startTime = requestSendEvent.ts / 1000;
-  const endTime = requestEndEvent.ts / 1000;
+  const startTime = requestSendEvent.ts / 1000; // convert microseconds to milliseconds
+  const endTime = requestEndEvent.ts / 1000; // convert microseconds to milliseconds
   const duration = endTime - startTime;
 
   return {
-    startTime: requestSendEvent.ts / 1000,
-    endTime: requestEndEvent.ts / 1000,
+    startTime,
+    endTime,
     duration,
     url,
   };
