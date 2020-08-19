@@ -1,0 +1,15 @@
+{
+  "name": "tapad.js-testing",
+  "version": "1.0.0",
+  "description": "Testing util for Tapad.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "puppeteer": "^5.2.1"
+  }
+}
