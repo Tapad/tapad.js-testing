@@ -18,3 +18,6 @@ Google Chrome provides a good GUI for navigating this json file: simply go to `c
 
 The script provides a simple example of how to interact with the content of the json file in a programmatic way.
 
+#### Further Reading
+1. Trace Event Format: https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/preview
+1. Using Puppeteer: https://michaljanaszek.com/blog/test-website-performance-with-puppeteer/
