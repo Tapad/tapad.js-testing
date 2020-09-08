@@ -52,7 +52,7 @@ function logTimingInfo() {
   console.log(Array.from(urls).map((url) => getTimingForRequest(url, tracing)));
 }
 
-(async () => {
+exports.run = async (_, res) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const tracingFileName = "tracing.json";
@@ -60,8 +60,8 @@ function logTimingInfo() {
   await page.tracing.start({ path: tracingFileName });
 
   const htmlContent = fs.readFileSync(
-    path.join(__dirname, "index.html"),
-    "utf8"
+      path.join(__dirname, "index.html"),
+      "utf8"
   );
   await page.setContent(htmlContent, {
     timeout: 5000,
@@ -73,4 +73,5 @@ function logTimingInfo() {
   logTimingInfo();
 
   await browser.close();
-})();
+  res.sendStatus(200);
+};
