@@ -55,9 +55,8 @@ function logTimingInfo() {
 exports.run = async (_, res) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  const tracingFileName = "tracing.json";
-  const tracingFilePath = path.join(__dirname, tracingFileName);
-  await page.tracing.start({ path: tracingFileName });
+  const tracingFilePath = path.join("/", "tmp", "tracing.json");
+  await page.tracing.start({ path: tracingFilePath });
 
   const htmlContent = fs.readFileSync(
       path.join(__dirname, "index.html"),
