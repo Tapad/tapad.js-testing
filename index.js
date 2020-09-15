@@ -32,9 +32,9 @@ function getTimingForRequest(url, tracing) {
   };
 }
 
-function logTimingInfo() {
+function logTimingInfo(tracingFilePath) {
   const tracing = JSON.parse(
-    fs.readFileSync(path.join(__dirname, "tracing.json"), "utf8")
+    fs.readFileSync(tracingFilePath, "utf8")
   );
 
   const urls = tracing.traceEvents.reduce((accum, e) => {
@@ -69,7 +69,7 @@ exports.run = async (_, res) => {
 
   await page.tracing.stop();
 
-  logTimingInfo();
+  logTimingInfo(tracingFilePath);
 
   await browser.close();
   res.sendStatus(200);
